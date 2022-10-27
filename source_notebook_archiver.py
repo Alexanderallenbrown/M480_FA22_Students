@@ -66,15 +66,18 @@ def main():
                 #modify links inside thie html file
                 # Read in the file
                 htmlfilename = os.path.join(dst,file[0:-5]+'html')
-                print("HTML FILE: "+htmlfilename)
-                with open(htmlfilename, 'r') as htmlfile :
+                
+                htmlfilename2 = htmlfilename.replace(" ", "_")
+                os.rename(htmlfilename,htmlfilename2)
+                print("HTML FILE: "+htmlfilename2)
+                with open(htmlfilename2, 'r') as htmlfile :
                   filedata = htmlfile.read()
                 htmlfile.close()
 
                 # Replace the target string
                 filedata = filedata.replace('ipynb', 'html')
 
-                with open(htmlfilename, 'w') as htmlfile :
+                with open(htmlfilename2, 'w') as htmlfile :
                     htmlfile.write(filedata)
                 htmlfile.close()
 
