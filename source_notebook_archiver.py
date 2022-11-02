@@ -81,7 +81,7 @@ def main():
                     htmlfile.write(filedata)
                 htmlfile.close()
 
-                link = "<a href="+str(os.path.join(rel_dir,htmlfilename2))+">"+file[0:-6]+"</a>"
+                link = "<a href="+str(os.path.join(rel_dir,file[0:-5]+"html".replace(" ","_")))+">"+file[0:-6]+"</a>"
                 findex.write("<p>\r\n")
                 findex.write(link+"\r\n")
                 findex.write("</p>\r\n")
